@@ -90,7 +90,7 @@ public class OverlayUtils {
     private boolean isChangeableOverlay(String packageName) {
         try {
             PackageInfo pi = mPackageManager.getPackageInfo(packageName, 0);
-            return pi != null && (pi.overlayFlags) == 0;
+            return pi != null && !pi.isStaticOverlay;
         } catch (PackageManager.NameNotFoundException e) {
             return false;
         }
